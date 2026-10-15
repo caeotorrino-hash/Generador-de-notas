@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eff7f6">
+  <title>Generador de Notas Poli ORL</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>.instruction-guide{margin:12px 0;padding:12px;border-radius:8px;background:#f2f8f7;color:#64777b;font-size:10px;line-height:1.6}.instruction-guide strong{color:#315b5b;font-size:11px}.instruction-guide ol{margin:7px 0 8px;padding-left:18px}.instruction-guide p{margin:0;color:#819092}</style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-mark" aria-hidden="true">ORL</div>
+    <div><p class="eyebrow">POLICLÍNICO DE OTORRINOLARINGOLOGÍA</p><h1>Generador de Notas Poli ORL</h1></div>
+    <span class="local-badge"><span></span> Procesamiento local</span>
+  </header>
+  <main>
+    <section class="intro"><div><h2>Registro administrativo ORL</h2><p>Prepara notas uniformes para la atención de pacientes pediátricos y sus madres, padres o tutores.</p></div><p class="privacy-note">No ingreses antecedentes clínicos innecesarios. Los datos no se guardan ni se envían.</p></section>
+    <div class="workspace">
+      <section class="card form-card" aria-labelledby="form-heading">
+        <div class="section-heading"><div><p class="eyebrow">PASO 1</p><h2 id="form-heading">Datos de la gestión</h2></div><span class="required-hint">Todos los campos son opcionales</span></div>
+        <label class="field"><span>Tipo de gestión</span><select id="category" aria-label="Tipo de gestión"></select></label>
+        <div class="fields-grid" id="fields"></div>
+        <details class="config"><summary>Configurar indicaciones institucionales</summary><div class="instruction-guide"><strong>Instructivo de configuración</strong><ol><li>Solicita las indicaciones oficiales vigentes a la jefatura o referente clínico de tu servicio.</li><li>En la sección correspondiente, escribe o pega cada indicación aprobada en una línea distinta.</li><li>Revisa las opciones que aparecen en el formulario y selecciona solo las que efectivamente informaste.</li><li>No agregues preparaciones, restricciones ni instrucciones clínicas por cuenta propia. Si no hay una indicación autorizada, deja el campo vacío.</li></ol><p>La configuración se mantiene solo mientras esta página esté abierta; al cerrarla o recargarla se borra. No ingreses datos de pacientes aquí.</p></div><div id="instructions-config"></div></details>
+        <div class="form-actions"><button class="button button-quiet" id="clearBtn" type="button">Limpiar formulario</button><button class="button button-primary" id="generateBtn" type="button">Generar nota <span aria-hidden="true">→</span></button></div>
+        <p id="formMessage" class="form-message" role="alert" aria-live="polite"></p>
+      </section>
+      <section class="card preview-card" aria-labelledby="preview-heading">
+        <div class="section-heading"><div><p class="eyebrow">PASO 2</p><h2 id="preview-heading">Nota generada</h2></div><span class="preview-icon" aria-hidden="true">✳</span></div>
+        <p class="preview-help">La vista previa se actualiza al cambiar los datos. Puedes editar el texto antes de copiarlo.</p>
+        <label class="sr-only" for="noteOutput">Texto de la nota</label><textarea id="noteOutput" placeholder="La nota aparecerá aquí…" spellcheck="true"></textarea>
+        <div class="preview-footer"><span id="charCount">0 caracteres</span><span id="copyMessage" role="status" aria-live="polite"></span></div>
+        <div class="preview-actions"><button class="button button-quiet" id="editBtn" type="button">Editar nota</button><button class="button button-primary" id="copyBtn" type="button">Copiar nota</button></div>
+        <div class="tip"><span aria-hidden="true">⌁</span><p>Revisa la nota antes de registrarla. Confirma que refleje únicamente los hechos informados.</p></div>
+      </section>
+    </div>
+    <footer>Herramienta local de apoyo administrativo · Copia el texto en el registro institucional que corresponda · No integrada con sistemas del hospital.</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
